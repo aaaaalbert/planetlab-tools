@@ -13,6 +13,7 @@ import xmlrpclib
 import sys
 import pprint
 import pickle
+import time
 
 # allow_none=True enables a non-standard extension to XML-RPC that 
 # allows null values (None in Python) to be passed.
@@ -44,7 +45,7 @@ print "Found", len(nodes_overall), "nodes overall:"
 pprint.pprint(nodes_overall)
 
 print "Writing node dict to file...",
-nodedict_file = open("nodedict.pickle", "w")
+nodedict_file = open("nodedict.pickle." + str(int(time.time())), "w")
 pickle.dump(nodes_overall, nodedict_file)
 nodedict_file.close()
 print "Done!"
